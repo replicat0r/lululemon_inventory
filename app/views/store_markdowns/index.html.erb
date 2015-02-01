@@ -1,17 +1,34 @@
 <h1 class="text-center">Store Mark Down Lists</h1>
 <div class="col-sm-12">
-<table class="table table-bordered markdowns">
-
-<tr>
-<% @column_names.each do |column| %>
-	<td>
-		<%=column.titleize %>
-	</td>
-<%end %>
-
-
-
-</tr>
-
-</table>
+	<%= form_tag({:action => 'import'},multipart: true) do  %>
+	<%= file_field_tag(:file) %>
+	<%= submit_tag 'upload' %>
+	<% end %>
+</div>
+<div class="col-sm-12">
+	<table class="table table-bordered markdowns ">
+		<thead>
+			<tr>
+				<% @column_names.each do |column| %>
+				<th>
+					<%=column.titleize %>
+				</th>
+				<%end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% @markdowns.each do |m| %>
+			<tr>
+				
+				<td><%= best_in_place m,:item_name %></td>
+				<td><%= best_in_place m,:colour %></td>
+				<td><%= best_in_place m,:original_price %></td>
+				<td><%= best_in_place m,:current_price %></td>
+				<td><%= best_in_place m,:initials %></td>
+				<td><%= best_in_place m,:date_changed %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<%= will_paginate @markdowns %>
 </div>
