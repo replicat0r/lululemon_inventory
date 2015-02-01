@@ -11,3 +11,13 @@
  *= require_self
  *= require_tree .
  */
+
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ @import url(http://fonts.googleapis.com/css?family=Roboto:300);
+
+ html,body{
+font-family: 'Roboto', sans-serif; 
+}
