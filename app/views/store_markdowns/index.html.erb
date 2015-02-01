@@ -1,1 +1,17 @@
 <h1 class="text-center">Store Mark Down Lists</h1>
+<div class="col-sm-12">
+<table class="table table-bordered markdowns">
+
+<tr>
+<% @column_names.each do |column| %>
+	<td>
+		<%=column.titleize %>
+	</td>
+<%end %>
+
+
+
+</tr>
+
+</table>
+</div>
