@@ -16,5 +16,7 @@
 //= require bootstrap-sprockets
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require best_in_place
-
+//= require jquery-ui/core
+//= require jquery-ui/datepicker
+//= require best_in_place.jquery-ui
 //= require store_markdowns

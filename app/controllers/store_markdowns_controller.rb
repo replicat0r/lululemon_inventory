@@ -7,7 +7,7 @@ class StoreMarkdownsController < ApplicationController
   	
   	@column_names.delete('updated_at')
   	@column_names.delete('id')
-
+  	@column_names.delete('created_at')
   end
 
   def update

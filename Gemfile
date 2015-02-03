@@ -26,6 +26,7 @@ gem 'bootstrap-sass', '~> 3.3.3'
 gem 'best_in_place'
 gem 'jquery-ui-rails'
 
+
 gem 'roo'
 gem "iconv", "~> 1.0.3"
 gem 'will_paginate', '~> 3.0.6'

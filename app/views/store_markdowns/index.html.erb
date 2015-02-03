@@ -20,12 +20,12 @@
 			<% @markdowns.each do |m| %>
 			<tr>
 				
-				<td><%= best_in_place m,:item_name %></td>
-				<td><%= best_in_place m,:colour %></td>
+				<td><%= best_in_place m,:item_name,:ok_button => 'okay'%></td>
+				<td><%= best_in_place m,:colour,:cancel_button => 'cancel'%></td>
 				<td><%= best_in_place m,:original_price %></td>
 				<td><%= best_in_place m,:current_price %></td>
 				<td><%= best_in_place m,:initials %></td>
-				<td><%= best_in_place m,:date_changed %></td>
+				<td><%= best_in_place m,:date_changed,:as => :date %></td>
 			</tr>
 			<% end %>
 		</tbody>
