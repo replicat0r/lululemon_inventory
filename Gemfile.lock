@@ -32,10 +32,17 @@ GEM
     best_in_place (3.0.3)
       actionpack (>= 3.2)
       railties (>= 3.2)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.3)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
     builder (3.1.4)
+    callsite (0.0.11)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     coderay (1.1.0)
@@ -46,6 +53,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.0)
+    debug_inspector (0.0.2)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -53,6 +61,8 @@ GEM
     eventmachine (1.0.3)
     execjs (2.2.2)
     ffi (1.9.6)
+    font-awesome-rails (4.2.0.0)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.5)
     guard (2.10.1)
       formatador (>= 0.2.4)
@@ -86,6 +96,10 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta_request (0.3.4)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.0.0)
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.2)
@@ -101,6 +115,8 @@ GEM
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
+    rack-contrib (1.2.0)
+      rack (>= 0.9.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.0.0)
@@ -169,14 +185,18 @@ PLATFORMS
 
 DEPENDENCIES
   best_in_place
+  better_errors
+  binding_of_caller
   bootstrap-sass (~> 3.3.3)
   coffee-rails (~> 4.0.0)
+  font-awesome-rails
   guard
   guard-livereload
   iconv (~> 1.0.3)
   jbuilder (~> 1.2)
   jquery-rails
   jquery-ui-rails
+  meta_request
   quiet_assets
   rails (= 4.0.0)
   roo

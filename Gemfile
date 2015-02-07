@@ -30,6 +30,8 @@ gem 'jquery-ui-rails'
 gem 'roo'
 gem "iconv", "~> 1.0.3"
 gem 'will_paginate', '~> 3.0.6'
+gem "font-awesome-rails"
+
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 #gem 'turbolinks'
@@ -46,7 +48,9 @@ group :development do
   gem 'guard'
   gem 'guard-livereload', require: false
   gem 'quiet_assets'
-
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'meta_request'
 end
 
 # Use ActiveModel has_secure_password

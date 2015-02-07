@@ -1,0 +1,28 @@
+<div class="col-sm-12">
+		<%= will_paginate @markdowns %>
+	<table class="table table-bordered markdowns ">
+		<thead>
+			<tr class="info">
+				<% @column_names.each do |column| %>
+				<th>
+					<strong><%=column.titleize %></strong>
+				</th>
+				<%end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% @markdowns.each do |m| %>
+			<tr>
+				
+				<td><%= best_in_place m,:item_name%></td>
+				<td><%= best_in_place m,:colour%></td>
+				<td><%= best_in_place m,:original_price ,:display_with => :number_to_currency%></td>
+				<td><%= best_in_place m,:current_price %></td>
+				<td><%= best_in_place m,:initials %></td>
+				<td><%= best_in_place m,:date_changed,:as => :date %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<%= will_paginate @markdowns %>
+</div>

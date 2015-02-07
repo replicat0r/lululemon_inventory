@@ -18,9 +18,10 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "font-awesome";
 
- @import url(http://fonts.googleapis.com/css?family=Roboto:300);
 
+@import url(http://fonts.googleapis.com/css?family=Roboto:300);
  html,body{
 font-family: 'Roboto', sans-serif; 
 }

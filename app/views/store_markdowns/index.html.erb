@@ -1,34 +1,13 @@
+
 <h1 class="text-center">Store Mark Down Lists</h1>
 <div class="col-sm-12">
 	<%= form_tag({:action => 'import'},multipart: true) do  %>
-	<%= file_field_tag(:file) %>
-	<%= submit_tag 'upload' %>
+	    <input type="file" id="file" name="myfiles[]"  />
+
+	    
+	    	<%= button_tag 'upload file' ,data:{disable_with: "<i class='fa fa-spinner fa-spin'></i>  Uploading File..."},:class => "btn btn-info " %>
 	<% end %>
+
 </div>
-<div class="col-sm-12">
-	<table class="table table-bordered markdowns ">
-		<thead>
-			<tr>
-				<% @column_names.each do |column| %>
-				<th>
-					<%=column.titleize %>
-				</th>
-				<%end %>
-			</tr>
-		</thead>
-		<tbody>
-			<% @markdowns.each do |m| %>
-			<tr>
-				
-				<td><%= best_in_place m,:item_name,:ok_button => 'okay'%></td>
-				<td><%= best_in_place m,:colour,:cancel_button => 'cancel'%></td>
-				<td><%= best_in_place m,:original_price %></td>
-				<td><%= best_in_place m,:current_price %></td>
-				<td><%= best_in_place m,:initials %></td>
-				<td><%= best_in_place m,:date_changed,:as => :date %></td>
-			</tr>
-			<% end %>
-		</tbody>
-	</table>
-	<%= will_paginate @markdowns %>
-</div>
+
+<%= render 'partials/markdowns' unless @markdowns.empty? %>

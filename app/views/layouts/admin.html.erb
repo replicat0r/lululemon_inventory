@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>LululemonInventory Admin Panel</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body class="container-fluid <%= controller.controller_name %> <%= controller.action_name %>">
-<div class="row">
-
-<%= yield %>
-</div>
-</body>
+	<head>
+		<title>LululemonInventory Admin Panel</title>
+		<%= stylesheet_link_tag    "application" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body class="container-fluid <%= controller.controller_name %> <%= controller.action_name %>">
+		<div class="row">
+			<% unless flash.blank? %>
+			<% flash.each do |key, value| %>
+			<div class="<%= flash_class(key) %> fade in">
+				<a href="#" data-dismiss="alert" class="close">×</a>
+				<h4 class="text-center"><%= value %></h4>
+			</div>
+			<% end %>
+			<% end %>
+			<%= yield %>
+		</div>
+	</body>
 </html>
