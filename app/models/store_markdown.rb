@@ -7,14 +7,9 @@ class StoreMarkdown < ActiveRecord::Base
     diff = header - col_names
     raise ArgumentError, "Column Name Do not Match" unless diff.empty?
 
-    puts '=================='
-
-
-
     (2..spreadsheet.last_row).each do |i|
       puts row = Hash[[header,spreadsheet.row(i)].transpose]
       markdown = find_by_id(row["id"]) || new
-
       markdown.attributes = row.to_hash.slice(*markdown.attribute_names())
 
       markdown.save!

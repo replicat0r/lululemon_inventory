@@ -11,17 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203031207) do
+ActiveRecord::Schema.define(version: 20150209041639) do
 
   create_table "store_markdowns", force: true do |t|
     t.string   "item_name"
     t.string   "colour"
     t.integer  "original_price", limit: 255
-    t.string   "current_price"
-    t.string   "initials"
-    t.string   "date_changed"
+    t.integer  "current_price",  limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "markdowns"
   end
 
 end

@@ -2,7 +2,7 @@
 		<%= will_paginate @markdowns %>
 	<table class="table table-bordered markdowns ">
 		<thead>
-			<tr class="info">
+			<tr>
 				<% @column_names.each do |column| %>
 				<th>
 					<strong><%=column.titleize %></strong>
@@ -17,9 +17,9 @@
 				<td><%= best_in_place m,:item_name%></td>
 				<td><%= best_in_place m,:colour%></td>
 				<td><%= best_in_place m,:original_price ,:display_with => :number_to_currency%></td>
-				<td><%= best_in_place m,:current_price %></td>
-				<td><%= best_in_place m,:initials %></td>
-				<td><%= best_in_place m,:date_changed,:as => :date %></td>
+				<td><%= best_in_place m,:current_price ,:display_with => :number_to_currency%></td>
+								<td><%= best_in_place m,:markdowns, :as => :select, :collection => %w(1st 2nd Xstore) %></td>
+
 			</tr>
 			<% end %>
 		</tbody>

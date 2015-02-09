@@ -2,7 +2,7 @@
 <h1 class="text-center">Store Mark Down Lists</h1>
 <div class="col-sm-12">
 	<%= form_tag({:action => 'import'},multipart: true) do  %>
-	    <input type="file" id="file" name="myfiles[]"  />
+	    <%= file_field_tag :file %>
 
 	    
 	    	<%= button_tag 'upload file' ,data:{disable_with: "<i class='fa fa-spinner fa-spin'></i>  Uploading File..."},:class => "btn btn-info " %>
