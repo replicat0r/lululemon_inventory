@@ -8,12 +8,23 @@
 		<%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/animsition/3.4.3/js/jquery.animsition.min.js" %>
 		<%= csrf_meta_tags %>
 	</head>
-	<body class="container-fluid <%= controller.controller_name %> <%= controller.action_name %>">
-		<div class="animsition">
+	<body class=" <%= controller.controller_name %> <%= controller.action_name %>">
+		<!-- Pushy Menu -->
+		<% if user_signed_in? %>
+		<nav class="pushy pushy-left">
+			<span class="site-close"><i class="fa fa-times"></i></span>
+			<ul>
+				<li><%= link_to("Log Out", destroy_user_session_path, method: :delete ) %>
+				</li>
+				<li><a href="#">Item 2</a></li>
+			</ul>
+		</nav>
+		<div class="site-overlay"></div>
+		<% end %>
+		<!-- Site Overlay -->
+		<div class="animsition container-fluid" id="container">
 			<% if user_signed_in? %>
-			<div class="row">
-				<%= link_to("Log Out", destroy_user_session_path, method: :delete ) %>
-			</div>
+			<div class="menu-btn">&#9776; Menu</div>
 			<% end %>
 			<div class="row">
 				<% unless flash.blank? %>

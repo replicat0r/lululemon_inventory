@@ -15,18 +15,28 @@
 
  */
 
-
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import "font-awesome";
-
-
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
 @import url(http://fonts.googleapis.com/css?family=Roboto:300,400);
- html,body{
-font-family: 'Roboto', sans-serif; 
-font-weight: 300;
+html, body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
+.center-block {
+    float: none;
+}
+.pushy {
+	ul{
+		padding:0;
+		    padding:3em 0;
 
-.center-block{
-	float: none;
+	}
+    .site-close i {
+        color: white;
+        font-size: 2rem;
+        position: absolute;
+        right: 10px;
+        top: 5px;
+    }
 }
