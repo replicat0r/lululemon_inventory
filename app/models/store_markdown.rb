@@ -2,11 +2,16 @@ class StoreMarkdown < ActiveRecord::Base
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
-    puts '=================='
     col_names = StoreMarkdown.column_names
     col_names -= %w[updated_at created_at id]
     diff = header - col_names
-    raise ColumnError, "Column Name Do not Match" unless diff.empty?
+    puts '=================='
+
+    puts "diff" + " " + diff
+    puts '=================='
+    puts col_names
+    raise ColumnError, "Column Name Do not Match, #{diff} is not found in db" unless diff.empty?
+
 
     (2..spreadsheet.last_row).each do |i|
       puts row = Hash[[header,spreadsheet.row(i)].transpose]

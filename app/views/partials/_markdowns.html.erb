@@ -18,7 +18,7 @@
 				<td><%= best_in_place m,:colour%></td>
 				<td><%= best_in_place m,:original_price ,:display_with => :number_to_currency%></td>
 				<td><%= best_in_place m,:current_price ,:display_with => :number_to_currency%></td>
-								<td><%= best_in_place m,:markdowns, :as => :select, :collection => %w(1st 2nd Xstore) %></td>
+								<td><%= best_in_place m,:markdown, :as => :select, :collection => %w(1st 2nd Xstore) %></td>
 
 			</tr>
 			<% end %>
