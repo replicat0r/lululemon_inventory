@@ -3,26 +3,29 @@
 	<head>
 		<title>LululemonInventory Admin Panel</title>
 		<%= stylesheet_link_tag    "application" %>
+		<%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/animsition/3.4.3/css/animsition.min.css" %>
 		<%= javascript_include_tag "application" %>
+		<%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/animsition/3.4.3/js/jquery.animsition.min.js" %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body class="container-fluid <%= controller.controller_name %> <%= controller.action_name %>">
-	<% if user_signed_in? %>
-	<div class="row">
-		<%= link_to("Log Out", destroy_user_session_path, method: :delete ) %>
-	</div>
-
-	<% end %>
-		<div class="row">
-			<% unless flash.blank? %>
-			<% flash.each do |key, value| %>
-			<div class="<%= flash_class(key) %> fade in">
-				<a href="#" data-dismiss="alert" class="close">×</a>
-				<h4 class="text-center"><%= value %></h4>
+		<div class="animsition">
+			<% if user_signed_in? %>
+			<div class="row">
+				<%= link_to("Log Out", destroy_user_session_path, method: :delete ) %>
 			</div>
 			<% end %>
-			<% end %>
-			<%= yield %>
+			<div class="row">
+				<% unless flash.blank? %>
+				<% flash.each do |key, value| %>
+				<div class="<%= flash_class(key) %> fade in">
+					<a href="#" data-dismiss="alert" class="close">×</a>
+					<h4 class="text-center"><%= value %></h4>
+				</div>
+				<% end %>
+				<% end %>
+				<%= yield %>
+			</div>
 		</div>
 	</body>
 </html>
