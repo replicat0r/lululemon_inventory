@@ -1,5 +1,6 @@
 LululemonInventory::Application.routes.draw do
-  root 'store_markdowns#index'
+  devise_for :users
+   root 'store_markdowns#index'
 
   resources :store_markdowns do
      collection {post :import}

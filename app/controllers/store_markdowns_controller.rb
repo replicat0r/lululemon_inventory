@@ -1,5 +1,6 @@
 class StoreMarkdownsController < ApplicationController
-  layout 'admin'
+  before_action :authenticate_user!
+
 
   def index
     @markdowns = StoreMarkdown.all.paginate(:per_page => 50,:page => params[:page])
