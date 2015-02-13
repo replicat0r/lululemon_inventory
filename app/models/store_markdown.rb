@@ -4,8 +4,9 @@ class StoreMarkdown < ActiveRecord::Base
     header = spreadsheet.row(1)
     puts '=================='
     col_names = StoreMarkdown.column_names
+    col_names -= %w[updated_at created_at id]
     diff = header - col_names
-    raise ArgumentError, "Column Name Do not Match" unless diff.empty?
+    raise ColumnError, "Column Name Do not Match" unless diff.empty?
 
     (2..spreadsheet.last_row).each do |i|
       puts row = Hash[[header,spreadsheet.row(i)].transpose]
@@ -14,6 +15,18 @@ class StoreMarkdown < ActiveRecord::Base
 
       markdown.save!
     end
+
+    # StoreMarkdown.all.each do |markdown|
+    #   duplicated = StoreMarkdown.find_each item_name: markdown.item_name
+    #   puts duplicated
+    #   red
+
+    #   if duplicated.size > 0
+    #     markdown.colour = markdown.colour + ",#{duplicated.map(&:colour).join(',')}"
+    #     markdown.save!
+    #     duplicated.destroy_all
+    #   end
+    #end
 
 
 
@@ -35,4 +48,7 @@ class StoreMarkdown < ActiveRecord::Base
 end
 
 class UnknownFileType < StandardError
+end
+
+class ColumnError < StandardError
 end

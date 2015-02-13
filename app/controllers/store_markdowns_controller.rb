@@ -29,7 +29,7 @@ class StoreMarkdownsController < ApplicationController
         flash[:success] = "The MarkDown Sheet has been successfully imported!"
       rescue UnknownFileType
         flash[:error] = "Incorrect File Type, Must be .xlxs"
-      rescue ArgumentError
+      rescue ColumnError
         flash[:error] = "The Column Name On the Excel Sheet Is Incorrect"
       ensure
         redirect_to :action => 'index'
