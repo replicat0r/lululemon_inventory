@@ -5,11 +5,7 @@ class StoreMarkdown < ActiveRecord::Base
     col_names = StoreMarkdown.column_names
     col_names -= %w[updated_at created_at id]
     diff = header - col_names
-    puts '=================='
 
-    puts "diff" + " " + diff
-    puts '=================='
-    puts col_names
     raise ColumnError, "Column Name Do not Match, #{diff} is not found in db" unless diff.empty?
 
 
